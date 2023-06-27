@@ -14,11 +14,20 @@ const perPersonTotalDiv=document.getElementById('perPersonTotal')
 
 
  const calculateBill=()=>{
+  // get bill from user input & convert it into a number
     const bill=Number(billInputDiv.value)
+
+  // get the tip from user & convert it into a percentage (divide by 100)
     const tipPercentage=Number(tipInputDiv.value)/100
+
+  // get the total tip amount
     const tipTotal=bill*tipPercentage
+
+  // calculate the total (tipTotal + bill)
     const totalbill=bill+tipTotal
+  // calculate the per person total (total divided by number of people)
     const perPersonTotalAmount=totalbill/numberOfPeople
+  // update the perPersonTotal on DOM & show it to user
     perPersonTotalDiv.innerText=`$${perPersonTotalAmount.toFixed(2)}`
  }
 
@@ -41,7 +50,8 @@ const perPersonTotalDiv=document.getElementById('perPersonTotal')
      // if amount is 1 or less simply return
      // (a.k.a you can't decrease the number of people to 0 or negative!)
    
-     if(numberOfPeople<=1){
+    if(numberOfPeople<=1){
+      alert('You cannot have less than one person')
         return
      }
 
